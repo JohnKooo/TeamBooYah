@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,22 @@ public class Player2 : MonoBehaviour
     public float yRangeMin;
     public float speed = 10;
     public float jumpHeight = 50f;
+    public float playerHp = 200;
+    public float maxHp = 200;
     private float horizontalInput;
     public Rigidbody charRig;
-    // Start is called before the first frame update
+    public BoxCollider test;
+    public GameObject arm;
+    private Vector3 startPos;
+    [SerializeField] HealthBar healthBar;
+
+    private void Awake(){
+        healthBar = GetComponentInChildren<HealthBar>();
+    }
     void Start()
     {
-        
+        playerHp = maxHp;
+        healthBar.UpdateHealthBar(playerHp,maxHp);
     }
 
     // Update is called once per frame
@@ -22,8 +33,29 @@ public class Player2 : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Vertical");
         transform.Translate(Vector3.forward * Time.deltaTime * speed * horizontalInput);
+
         JumpCharacter();
         KeepInBounds();
+        DestroyCharacter();
+        PunchAttack();
+    }
+
+    private void PunchAttack()
+    {
+        if (Input.GetKey(KeyCode.Keypad0))
+        {
+            arm.transform.position = new Vector3(transform.position.x + -1,transform.position.y + .55f ,transform.position.z);
+        }else{
+            arm.transform.position = transform.position;
+        }
+    }
+
+    private void DestroyCharacter()
+    {
+        if (playerHp <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void KeepInBounds(){
@@ -37,7 +69,7 @@ public class Player2 : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
 
-        // down range
+        // up and down range
         if(transform.position.y < yRangeMin)
         {
             transform.position = new Vector3(transform.position.x, yRangeMin, transform.position.z);
@@ -57,6 +89,24 @@ public class Player2 : MonoBehaviour
             charRig.AddForce(transform.up *  jumpHeight, ForceMode.Impulse );
         }
         }
-        
+    }
+
+    private void OnTriggerEnter(Collider collider){
+        if (collider.gameObject.tag == "Player")
+        {
+            System.Random random = new System.Random();
+            int ranNum = random.Next(10,20);
+            playerHp -= ranNum;
+            
+            healthBar.UpdateHealthBar(playerHp, maxHp);
+            // Debug.Log("Player Two HP:" + playerHp);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision){
+        if (collision.gameObject.tag == "HitBox")
+        {
+            
+        }
     }
 }
