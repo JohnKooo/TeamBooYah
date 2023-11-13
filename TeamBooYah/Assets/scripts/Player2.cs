@@ -16,6 +16,7 @@ public class Player2 : MonoBehaviour
     public Rigidbody charRig;
     public BoxCollider test;
     public GameObject arm;
+    public GameObject menu;
     private Vector3 startPos;
     [SerializeField] HealthBar healthBar;
 
@@ -55,6 +56,7 @@ public class Player2 : MonoBehaviour
         if (playerHp <= 0)
         {
             Destroy(gameObject);
+            menu.SetActive(true);
         }
     }
 

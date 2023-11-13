@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: 2f0a81583e53d1847aef78a84c237769
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Supernova
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 6a3b9064ccd4b444086617a167667c57, type: 3}
+  - {fileID: 12800000, guid: 9b0d76c1117709d42a6b0de320675fb0, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
