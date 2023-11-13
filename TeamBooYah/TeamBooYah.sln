@@ -49,9 +49,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Settings.Editor", "Un
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.2D.Sprite.Editor", "Unity.2D.Sprite.Editor.csproj", "{05A85AD2-6868-B930-91E5-A65D80D5B599}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.VisualScripting.Shared.Editor", "Unity.VisualScripting.Shared.Editor.csproj", "{832A8028-AC45-9745-85D8-C4BFDFD6CCC2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.EditorCoroutines.Editor", "Unity.EditorCoroutines.Editor.csproj", "{9982F6ED-D3ED-0E21-ECAB-AEBF7BD1B210}"
 EndProject
@@ -159,14 +159,14 @@ Global
 		{05A85AD2-6868-B930-91E5-A65D80D5B599}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05A85AD2-6868-B930-91E5-A65D80D5B599}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05A85AD2-6868-B930-91E5-A65D80D5B599}.Release|Any CPU.Build.0 = Release|Any CPU
-		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{832A8028-AC45-9745-85D8-C4BFDFD6CCC2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{832A8028-AC45-9745-85D8-C4BFDFD6CCC2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{832A8028-AC45-9745-85D8-C4BFDFD6CCC2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{832A8028-AC45-9745-85D8-C4BFDFD6CCC2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60A00BE5-C2A1-DB53-CECA-2AF5307FD66D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9982F6ED-D3ED-0E21-ECAB-AEBF7BD1B210}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9982F6ED-D3ED-0E21-ECAB-AEBF7BD1B210}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9982F6ED-D3ED-0E21-ECAB-AEBF7BD1B210}.Release|Any CPU.ActiveCfg = Release|Any CPU

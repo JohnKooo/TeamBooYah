@@ -12,6 +12,9 @@ public class AnimationControlScript : MonoBehaviour
     // horInput and horInput2 are being used to know when you are moving the player in game
     private float horInput;
     private float horInput2;
+    // checks whether to go back to idling or not
+    public bool returnToNaturalState = true;
+    public bool hitState = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,32 +45,63 @@ public class AnimationControlScript : MonoBehaviour
     // animationState is grabbing the parameter and setting it to the value to which animation you want
     private void UpdateState()
     {
-        if (horInput > 0 || horInput < 0)
+        // if hitState is false it will allow the necessary animations to continue
+        // if player is hit it will not allow main animations for a calculated time
+        if (!hitState)
         {
-            animator.SetInteger(animationState, 1);
-        }
-        else{
-            animator.SetInteger(animationState,0);
+            if (horInput > 0 || horInput < 0)
+            {
+                returnToNaturalState = false;
+                animator.SetInteger(animationState, 1);
+            }else
+            {
+                returnToNaturalState = true;
+            }
+            
+
+            if (Input.GetKey(KeyCode.Keypad0))
+            {
+                returnToNaturalState = false;
+                animator.SetInteger(animationState,2);
+            }else
+            {
+                returnToNaturalState = true;
+            }
         }
 
-        if (Input.GetKey(KeyCode.Keypad0))
+        if(returnToNaturalState && !hitState)
         {
-            animator.SetInteger(animationState,2);
+            animator.SetInteger(animationState,0);
         }
     }
 
     private void UpdateState1(){
-        if (horInput2 > 0 || horInput2 < 0)
+        if (!hitState)
         {
-            animator.SetInteger(animationState, 1);
-        }
-        else{
-            animator.SetInteger(animationState,0);
+            if (horInput2 > 0 || horInput2 < 0)
+            {
+                returnToNaturalState = false;
+                animator.SetInteger(animationState, 1);
+            }else
+            {
+                returnToNaturalState = true;
+            }
+            
+
+            if (Input.GetKey(KeyCode.F))
+            {
+                returnToNaturalState = false;
+                animator.SetInteger(animationState,2);
+            }else
+            {
+                returnToNaturalState = true;
+            }
         }
 
-        if (Input.GetKey(KeyCode.F))
+        if(returnToNaturalState && !hitState)
         {
-            animator.SetInteger(animationState,2);
+            animator.SetInteger(animationState,0);
         }
+        
     }
 }

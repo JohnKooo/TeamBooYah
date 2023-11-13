@@ -17,13 +17,20 @@ public class Player2 : MonoBehaviour
     public BoxCollider test;
     public GameObject arm;
     public GameObject menu;
+    [SerializeField]private Animator animator;
+    private string animationState = "AnimationState";
+    [SerializeField] AnimationControlScript animationControlScript;
     [SerializeField] HealthBar healthBar;
 
-    private void Awake(){
+    private void Awake()
+    {
+        animationControlScript = GetComponentInChildren<AnimationControlScript>();
+        animator = GetComponentInChildren<Animator>();
         healthBar = GetComponentInChildren<HealthBar>();
     }
     void Start()
     {
+        
         playerHp = maxHp;
         healthBar.UpdateHealthBar(playerHp,maxHp);
     }
@@ -45,7 +52,8 @@ public class Player2 : MonoBehaviour
         if (Input.GetKey(KeyCode.Keypad0))
         {
             arm.transform.position = new Vector3(transform.position.x + -1,transform.position.y + .55f ,transform.position.z);
-        }else{
+        }else
+        {
             arm.transform.position = transform.position;
         }
     }
@@ -65,7 +73,8 @@ public class Player2 : MonoBehaviour
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
-           if(transform.position.x > xRange)
+
+        if(transform.position.x > xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
@@ -75,7 +84,8 @@ public class Player2 : MonoBehaviour
         {
             transform.position = new Vector3(transform.position.x, yRangeMin, transform.position.z);
         }
-           if(transform.position.y > yRangeMax)
+
+        if(transform.position.y > yRangeMax)
         {
             transform.position = new Vector3(transform.position.y, yRangeMax , transform.position.z);
         }
@@ -92,15 +102,28 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider collider){
+    private void OnTriggerEnter(Collider collider)
+    {
         if (collider.gameObject.tag == "Player")
         {
-            //using a random number to determine how much damage will be done
+            //using a random number to determine how much damage will be done(10-20)
             System.Random random = new System.Random();
             int ranNum = random.Next(10,20);
             playerHp -= ranNum;
+
+            StartCoroutine(HitCoroutine());
             
             healthBar.UpdateHealthBar(playerHp, maxHp);
         }
+    }
+
+    IEnumerator HitCoroutine()
+    {
+        animationControlScript.hitState = true;
+        animator.SetInteger(animationState, 3);
+
+        yield return new WaitForSeconds(.8f);
+
+        animationControlScript.hitState = false;
     }
 }

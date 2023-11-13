@@ -364,10 +364,10 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2023.1.19f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/DetectHit.cs"
 "Assets/HealthBar.cs"
-"Assets/scripts/AnimationControlScript.cs"
-"Assets/scripts/Menu.cs"
-"Assets/scripts/Player2.cs"
-"Assets/scripts/PlayerMovement.cs"
+"Assets/Scripts/AnimationControlScript.cs"
+"Assets/Scripts/Menu.cs"
+"Assets/Scripts/Player2Movement.cs"
+"Assets/Scripts/PlayerMovement.cs"
 -langversion:9.0
 
 /deterministic
