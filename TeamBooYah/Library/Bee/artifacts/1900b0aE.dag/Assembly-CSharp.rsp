@@ -365,6 +365,7 @@
 "Assets/DetectHit.cs"
 "Assets/HealthBar.cs"
 "Assets/scripts/AnimationControlScript.cs"
+"Assets/scripts/Menu.cs"
 "Assets/scripts/Player2.cs"
 "Assets/scripts/PlayerMovement.cs"
 -langversion:9.0
