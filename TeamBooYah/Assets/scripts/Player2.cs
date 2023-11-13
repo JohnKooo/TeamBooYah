@@ -17,7 +17,6 @@ public class Player2 : MonoBehaviour
     public BoxCollider test;
     public GameObject arm;
     public GameObject menu;
-    private Vector3 startPos;
     [SerializeField] HealthBar healthBar;
 
     private void Awake(){
@@ -87,28 +86,21 @@ public class Player2 : MonoBehaviour
         if (charRig.position.y == 2)
         {
             if (Input.GetKey(KeyCode.UpArrow))
-        {
-            charRig.AddForce(transform.up *  jumpHeight, ForceMode.Impulse );
-        }
+            {
+                charRig.AddForce(transform.up *  jumpHeight, ForceMode.Impulse);
+            }
         }
     }
 
     private void OnTriggerEnter(Collider collider){
         if (collider.gameObject.tag == "Player")
         {
+            //using a random number to determine how much damage will be done
             System.Random random = new System.Random();
             int ranNum = random.Next(10,20);
             playerHp -= ranNum;
             
             healthBar.UpdateHealthBar(playerHp, maxHp);
-            // Debug.Log("Player Two HP:" + playerHp);
-        }
-    }
-
-    private void OnCollisionEnter(Collision collision){
-        if (collision.gameObject.tag == "HitBox")
-        {
-            
         }
     }
 }

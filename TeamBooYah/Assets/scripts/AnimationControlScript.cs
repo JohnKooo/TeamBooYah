@@ -9,6 +9,7 @@ public class AnimationControlScript : MonoBehaviour
     public string characterSelector;
     private Animator animator;
     private string animationState = "AnimationState";
+    // horInput and horInput2 are being used to know when you are moving the player in game
     private float horInput;
     private float horInput2;
     // Start is called before the first frame update

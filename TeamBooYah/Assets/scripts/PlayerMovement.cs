@@ -18,7 +18,6 @@ public class PlayerMovement : MonoBehaviour
     public BoxCollider test;
     public GameObject arm;
     public GameObject menu;
-    private Vector3 startPos;
     [SerializeField] HealthBar healthBar;
 
     private void Awake(){
